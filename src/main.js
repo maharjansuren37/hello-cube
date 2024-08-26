@@ -11,8 +11,15 @@ const scene = new THREE.Scene();
 
 // mesh (object) = geometry + material
 const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true});
+const material = new THREE.MeshBasicMaterial({ color: 'lightblue'});
+// const material = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true});
 const mesh = new THREE.Mesh(geometry, material);
+// mesh.position.x = 0.7
+// mesh.position.y = -0.6;
+// mesh.position.z = 1;
+
+mesh.position.set(0.7, -0.6, -1);
+mesh.rotation.set(1, 1, 1);
 
 scene.add(mesh);
 
@@ -35,6 +42,18 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height);
 
 renderer.render(scene, camera);
+
+// function render(time) {
+//     time *= 0.001;
+
+//     mesh.rotation.x = time;
+//     mesh.rotation.y = time;
+
+//     renderer.render(scene, camera);
+//     requestAnimationFrame(render);
+// }
+
+// requestAnimationFrame(render);
 
 // function main() {
 //     const canvas = document.getElementById('c');
